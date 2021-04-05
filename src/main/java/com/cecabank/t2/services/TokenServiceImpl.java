@@ -1,34 +1,33 @@
 package com.cecabank.t2.services;
-import java.io.UnsupportedEncodingException;
+
 import java.util.Base64;
-import org.springframework.web.client.RestTemplate;
+
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.ExchangeFilterFunctions;
+
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
-import org.springframework.util.Base64Utils;
+
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import com.cecabank.t2.models.entity.*;
 
-import reactor.core.publisher.Flux;
+
 import reactor.core.publisher.Mono;
 @Service
 public class TokenServiceImpl implements ITokenService{
 
-	private static final String UTF_8 = "UTF_8";
+	
 	private static String	CLIENTID= "b824001f035d3f45be47e9c97c8a1a2a";
 	private static String   CLIENTSECRET= ":da8d598531939c72cdd1c5a8e7844c45";
 	private static String   BASE_URL= "http://localhost:8090";
-	private static String   MY_BODY = "grant_type=client_credencials&scope=read";
-	//private static String   BASE_URL= "https://api.np.intranet.cajastur.es:843";
+	
+	
 
 	
 	private final WebClient webClient;
@@ -67,7 +66,7 @@ public class TokenServiceImpl implements ITokenService{
 					.retrieve()
 					.bodyToMono(Token.class);
 					
-				//.uri("/integracion/ordenes-pago-target/v1/recepcion")
+				
 
 		} catch (Exception e) {
 			System.out.println("Errorako");
